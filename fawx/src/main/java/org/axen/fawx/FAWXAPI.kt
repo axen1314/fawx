@@ -34,6 +34,8 @@ object FAWXAPI {
 
     fun isWechatAppInstalled(): Boolean = wxapi?.isWXAppInstalled?:false
 
+    fun openWechatApp(): Boolean = wxapi?.openWXApp()?:false
+
     fun sendReq(req: BaseReq, callback: (BaseResp) -> Unit): Boolean {
         return wxapi?.let {
             FAWXOnRespHandler.handleReqCallback(req, callback)

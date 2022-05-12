@@ -29,11 +29,11 @@ class FAWXEntryActivity: Activity(), IWXAPIEventHandler {
             if (FAWXAPI.registered) {
                 FAWXAPI.handleIntent(intent, this)
             } else {
-                Log.e("FAWX", "FAWXAPI未初始化，请先调用setup方法进行初始化")
+                Log.d("FAWX", "FAWXAPI未初始化，请先调用setup方法进行初始化")
                 finish()
             }
         } catch (e: Exception) {
-            Log.e("FAWX", "Intent处理异常！")
+            Log.d("FAWX", "Intent处理异常！")
             e.printStackTrace()
             finish()
         }
@@ -41,6 +41,7 @@ class FAWXEntryActivity: Activity(), IWXAPIEventHandler {
 
     override fun onReq(req: BaseReq) {
         FAWXOnReqHandler.handleOnReq(this, req)
+        finish()
     }
 
     override fun onResp(resp: BaseResp) {
