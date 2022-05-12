@@ -26,10 +26,10 @@ class FAWXEntryActivity: Activity(), IWXAPIEventHandler {
 
     private fun handleIntentByFAWXAPI(intent: Intent) {
         try {
-            if (!FAWXAPI.registered) {
-                Log.e("FAWX", "FAWXAPI未初始化，请先调用setup方法进行初始化")
+            if (FAWXAPI.registered) {
                 FAWXAPI.handleIntent(intent, this)
             } else {
+                Log.e("FAWX", "FAWXAPI未初始化，请先调用setup方法进行初始化")
                 finish()
             }
         } catch (e: Exception) {
