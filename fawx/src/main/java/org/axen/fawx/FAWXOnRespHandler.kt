@@ -18,6 +18,7 @@ internal object FAWXOnRespHandler {
         if (!transaction.isNullOrBlank()) {
             val callback = mPendingCallback[transaction]
             callback?.invoke(resp)
+            mPendingCallback.remove(transaction)
         }
     }
 }
