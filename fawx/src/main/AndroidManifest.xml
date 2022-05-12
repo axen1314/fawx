@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.axen.fawx">
+
+    <application>
+        <activity
+            android:name="org.axen.wxapi.FAWXEntryActivity"
+            android:launchMode="singleTask"
+            android:exported="false"
+            android:taskAffinity="${applicationId}"
+            android:theme="@style/DisablePreviewTheme" />
+
+        <activity-alias
+            android:name="${applicationId}.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:targetActivity="org.axen.wxapi.FAWXEntryActivity"
+            android:taskAffinity="${applicationId}"
+            android:theme="@style/DisablePreviewTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity-alias>
+    </application>
+
+</manifest>
